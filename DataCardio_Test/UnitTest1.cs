@@ -45,5 +45,13 @@ namespace DataCardio_Test
             string risultato_effettivo = DataCardio.FrequenzaCardiacaPalestra(età, battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
+        [TestMethod]
+        public void FrequenzaCardiacaMinMax1()
+        {
+            int età = 18;
+            string risultato_aspettato = "minimi sono: 141,4; mentre quelli massimi sono: 181,8";
+            string risultato_effettivo = DataCardio.FrequenzaCardiacaMaxMin(età);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
     }
 }

@@ -32,5 +32,16 @@ namespace CardioLibrary
                 return "L'allenamento non è efficace";
             }
         }
+        public static string FrequenzaCardiacaMaxMin(int età)
+        {
+            int frequeMax = 220 - età;
+            double freque70 = 0.7 * frequeMax;
+            double freque90 = 0.9 * frequeMax;
+
+            freque70 = Math.Round(freque70, 1);
+            freque90 = Math.Round(freque90, 1);
+
+            return $"minimi sono: {freque70}; mentre quelli massimi sono: {freque90}";
+        }
     }
 }
