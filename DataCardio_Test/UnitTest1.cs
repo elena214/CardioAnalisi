@@ -45,12 +45,40 @@ namespace DataCardio_Test
             string risultato_effettivo = DataCardio.FrequenzaCardiacaPalestra(età, battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
+
         [TestMethod]
         public void FrequenzaCardiacaMinMax1()
         {
             int età = 18;
             string risultato_aspettato = "minimi sono: 141,4; mentre quelli massimi sono: 181,8";
             string risultato_effettivo = DataCardio.FrequenzaCardiacaMaxMin(età);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void FrequenzaCardiacaARiposo1()
+        {
+            int battiti = 85;
+            string risultato_aspettato = "La tua frequenza cardiaca è normale";
+            string risultato_effettivo = DataCardio.FrequenzaCardiacaARiposo(battiti);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void FrequenzaCardiacaARiposo2()
+        {
+            int battiti = 50;
+            string risultato_aspettato = "Sei bradicardico/a";
+            string risultato_effettivo = DataCardio.FrequenzaCardiacaARiposo(battiti);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void FrequenzaCardiacaARiposo3()
+        {
+            int battiti = 150;
+            string risultato_aspettato = "Sei tachicardiaco/a";
+            string risultato_effettivo = DataCardio.FrequenzaCardiacaARiposo(battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
     }

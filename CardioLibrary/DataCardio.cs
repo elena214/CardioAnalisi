@@ -43,5 +43,20 @@ namespace CardioLibrary
 
             return $"minimi sono: {freque70}; mentre quelli massimi sono: {freque90}";
         }
+        public static string FrequenzaCardiacaARiposo(int battiti)
+        {
+            if (battiti < 60)
+            {
+                return "Sei bradicardico/a";
+            }
+            else if (battiti >= 60 && battiti <= 100)
+            {
+                return "La tua frequenza cardiaca è normale";
+            }
+            else
+            {
+                return "Sei tachicardiaco/a";
+            }
+        }
     }
 }
