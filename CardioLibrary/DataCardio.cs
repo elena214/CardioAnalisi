@@ -58,5 +58,23 @@ namespace CardioLibrary
                 return "Sei tachicardiaco/a";
             }
         }
+        public static string SpesaEnergetica(string tipologia, double peso, double km)
+        {
+            double corsa = (0.9 * km) * peso;
+            double camminata = (0.50 * km) * peso;
+
+            if (tipologia == "corsa")
+            {
+                return $"Hai speso {corsa} kcal";
+            }
+            else if (tipologia == "camminata")
+            {
+                return $"Hai speso {camminata} kcal";
+            }
+            else
+            {
+                return "La risposta non è valida";
+            }
+        }
     }
 }

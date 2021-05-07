@@ -81,5 +81,25 @@ namespace DataCardio_Test
             string risultato_effettivo = DataCardio.FrequenzaCardiacaARiposo(battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
+        [TestMethod]
+        public void SpesaEnergetica1()
+        {
+            double km = 8;
+            double peso = 70;
+            string tipologia = "camminata";
+            string risultato_aspettato = "Hai speso 280 kcal";
+            string risultato_effettivo = DataCardio.SpesaEnergetica(tipologia, peso, km);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+        [TestMethod]
+        public void SpesaEnergetica2()
+        {
+            double km = 7;
+            double peso = 68;
+            string tipologia = "corsa";
+            string risultato_aspettato = "Hai speso 428,4 kcal";
+            string risultato_effettivo = DataCardio.SpesaEnergetica(tipologia, peso, km);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
     }
 }
