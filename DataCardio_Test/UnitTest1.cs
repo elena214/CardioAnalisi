@@ -101,5 +101,36 @@ namespace DataCardio_Test
             string risultato_effettivo = DataCardio.SpesaEnergetica(tipologia, peso, km);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
+        [TestMethod]
+        public void CalorieBruciate1()
+        {
+            int età = 17;
+            double peso = 68;
+            string categoria = "donna";
+            double tempo = 30;
+            string risultato_aspettato = "Le tue calorie bruciate sono 41,79";
+            string risultato_effettivo = DataCardio.CalorieBruciate(peso, età, tempo, categoria);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void CalorieBruciate2()
+        {
+            int età = 50;
+            double peso = 90;
+            string categoria = "uomo";
+            double tempo = 30;
+            string risultato_aspettato = "Le tue calorie bruciate sono 122,33";
+            string risultato_effettivo = DataCardio.CalorieBruciate(peso, età, tempo, categoria);
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void MediaBattiti()
+        {
+            double risultato_aspettato = 90;
+            double risultato_effettivo = DataCardio.MediaBattiti();
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
     }
 }

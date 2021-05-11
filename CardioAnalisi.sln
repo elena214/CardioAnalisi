@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardioLibrary", "CardioLibrary\CardioLibrary.csproj", "{A6247DA3-CDC5-434F-9AF7-D1C1D05B7A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardioLibrary", "CardioLibrary\CardioLibrary.csproj", "{A6247DA3-CDC5-434F-9AF7-D1C1D05B7A8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCardio_Test", "DataCardio_Test\DataCardio_Test.csproj", "{F29F2B40-89CC-4FCE-8E99-AEA5DF831AE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCardio_Test", "DataCardio_Test\DataCardio_Test.csproj", "{F29F2B40-89CC-4FCE-8E99-AEA5DF831AE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardio_Analisi", "Cardio_Analisi\Cardio_Analisi.csproj", "{36D029D0-742B-483D-B96D-A24D7FC3874C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F29F2B40-89CC-4FCE-8E99-AEA5DF831AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F29F2B40-89CC-4FCE-8E99-AEA5DF831AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F29F2B40-89CC-4FCE-8E99-AEA5DF831AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D029D0-742B-483D-B96D-A24D7FC3874C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D029D0-742B-483D-B96D-A24D7FC3874C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D029D0-742B-483D-B96D-A24D7FC3874C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D029D0-742B-483D-B96D-A24D7FC3874C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

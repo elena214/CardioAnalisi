@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CardioLibrary
 {
     public class DataCardio
     {
+        private static List<string> dati = new List<string>();
+
         public static string FrequenzaCardiaca(int età, int battiti)
         {
             int frequeMax = 220 - età;
@@ -75,6 +79,62 @@ namespace CardioLibrary
             {
                 return "La risposta non è valida";
             }
+        }
+        public static string CalorieBruciate(double peso, int età, double tempo, string categoria)
+        {
+            double kcaUomo = ((età * 0.2017) + (peso * 0.199) + (70 * 0.6309) - 55.0969) * (tempo / 4.184);
+            double kcaDonna = ((età * 0.074) - (peso * 0.126) + (75 * 0.4472) - 20.4022) * (tempo / 4.184);
+
+            if (categoria == "uomo")
+            {
+                return $"Le tue calorie bruciate sono {Math.Round(kcaUomo, 2)}";
+            }
+            else
+            {
+                return $"Le tue calorie bruciate sono {Math.Round(kcaDonna, 2)}";
+            }
+        }
+
+        public static void LetturaFileTesto()
+        {
+            StreamReader streamLettura = new StreamReader(@"\DatiAnalisi.txt");
+            string line;
+
+            do
+            {
+                line = streamLettura.ReadLine();
+                if (line != null)
+                {
+                    dati.Add(line);
+                }
+
+            } while (line != null);
+
+            streamLettura.Close();
+        }
+
+        public static double MediaBattiti()
+        {
+            List<double> dati2 = new List<double>();
+
+            //for (int i = 0; i < dati.Count; i++)
+            //{
+            //    dati2[i] = Convert.ToDouble(dati);
+            //}
+
+            foreach (string item in dati)
+            {
+                dati2.Add(Convert.ToDouble(item));
+            }
+
+            double somma = 0;
+            foreach (var item in dati2)
+            {
+                somma += item;
+            }
+            double media = somma / dati2.Count;
+
+            return media;
         }
     }
 }
