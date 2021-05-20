@@ -21,7 +21,7 @@ namespace DataCardio_Test
         {
             int et‡ = 75;
             int battiti = 170;
-            string risultato_aspettato = "Rilassati!! Hai la frequenza cardiaca troppo alta";
+            string risultato_aspettato = "Rilassati!! Hai la frequenza cardiaca Ë troppo alta";
             string risultato_effettivo = DataCardio.FrequenzaCardiaca(et‡, battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
@@ -31,7 +31,7 @@ namespace DataCardio_Test
         {
             int et‡ = 16;
             int battiti = 150;
-            string risultato_aspettato = "L'allenamento Ë efficace";
+            string risultato_aspettato = "In base alla tua frequenza cardiaca, l'allenamento Ë efficace";
             string risultato_effettivo = DataCardio.FrequenzaCardiacaPalestra(et‡, battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
@@ -41,7 +41,7 @@ namespace DataCardio_Test
         {
             int et‡ = 16;
             int battiti = 200;
-            string risultato_aspettato = "L'allenamento non Ë efficace";
+            string risultato_aspettato = "In base alla tua frequenza cardiaca, l'allenamento non Ë efficace";
             string risultato_effettivo = DataCardio.FrequenzaCardiacaPalestra(et‡, battiti);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
@@ -50,7 +50,7 @@ namespace DataCardio_Test
         public void FrequenzaCardiacaMinMax1()
         {
             int et‡ = 18;
-            string risultato_aspettato = "minimi sono: 141,4; mentre quelli massimi sono: 181,8";
+            string risultato_aspettato = "I battiti minimi sono: 141,4; mentre quelli massimi sono: 181,8";
             string risultato_effettivo = DataCardio.FrequenzaCardiacaMaxMin(et‡);
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
@@ -130,6 +130,22 @@ namespace DataCardio_Test
         {
             double risultato_aspettato = 90;
             double risultato_effettivo = DataCardio.MediaBattiti();
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void BattitoCardiacoRiposo1()
+        {
+            string risultato_aspettato = "Il battito cardiaco a riposo Ë 68";
+            string risultato_effettivo = DataCardio.BattitoCardiacoRiposo();
+            Assert.AreEqual(risultato_aspettato, risultato_effettivo);
+        }
+
+        [TestMethod]
+        public void Variabilit‡BattitoCardiaco1()
+        {
+            string risultato_aspettato = "La variabilit‡ del battito cardiaco Ë 54";
+            string risultato_effettivo = DataCardio.Variabilit‡BattitoCardiaco();
             Assert.AreEqual(risultato_aspettato, risultato_effettivo);
         }
     }

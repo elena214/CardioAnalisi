@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cardio_Analisi;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -7,6 +8,7 @@ namespace CardioLibrary
     public class DataCardio
     {
         private static List<string> dati = new List<string>();
+        private static List<double> dati2 = new List<double>();
 
         public static string FrequenzaCardiaca(int età, int battiti)
         {
@@ -14,7 +16,7 @@ namespace CardioLibrary
             
             if (battiti > frequeMax)
             {
-                return "Rilassati!! Hai la frequenza cardiaca troppo alta";
+                return "Rilassati!! Hai la frequenza cardiaca è troppo alta";
             }
             else
             {
@@ -29,13 +31,14 @@ namespace CardioLibrary
             double freque90 = 0.9 * frequeMax;
             if (battiti >= freque70 && battiti <= freque90)
             {
-                return "L'allenamento è efficace";
+                return "In base alla tua frequenza cardiaca, l'allenamento è efficace";
             }
             else
             {
-                return "L'allenamento non è efficace";
+                return "In base alla tua frequenza cardiaca, l'allenamento non è efficace";
             }
         }
+
         public static string FrequenzaCardiacaMaxMin(int età)
         {
             int frequeMax = 220 - età;
@@ -45,7 +48,7 @@ namespace CardioLibrary
             freque70 = Math.Round(freque70, 1);
             freque90 = Math.Round(freque90, 1);
 
-            return $"minimi sono: {freque70}; mentre quelli massimi sono: {freque90}";
+            return $"I battiti minimi sono: {freque70}; mentre quelli massimi sono: {freque90}";
         }
         public static string FrequenzaCardiacaARiposo(int battiti)
         {
@@ -97,7 +100,7 @@ namespace CardioLibrary
 
         public static void LetturaFileTesto()
         {
-            StreamReader streamLettura = new StreamReader(@"\DatiAnalisi.txt");
+            StreamReader streamLettura = new StreamReader(@"C:\Users\strac_eohm0fn\OneDrive\Desktop\Progetto fine anno tepsit 3AI\CardioAnalisi\CardioAnalisi\Cardio_Analisi\DatiAnalisi.txt");
             string line;
 
             do
@@ -111,21 +114,16 @@ namespace CardioLibrary
             } while (line != null);
 
             streamLettura.Close();
+
+            foreach (var item in dati)
+            {
+                dati2.Add(Convert.ToDouble(item));
+            }
         }
 
         public static double MediaBattiti()
         {
-            List<double> dati2 = new List<double>();
-
-            //for (int i = 0; i < dati.Count; i++)
-            //{
-            //    dati2[i] = Convert.ToDouble(dati);
-            //}
-
-            foreach (string item in dati)
-            {
-                dati2.Add(Convert.ToDouble(item));
-            }
+            LetturaFileTesto();
 
             double somma = 0;
             foreach (var item in dati2)
@@ -136,5 +134,29 @@ namespace CardioLibrary
 
             return media;
         }
+
+        public static string BattitoCardiacoRiposo()
+        {
+            LetturaFileTesto();
+            double min = dati2[0];
+            foreach(var item in dati2)
+            {
+                min = Math.Min(item, min);
+            }
+            return $"Il battito cardiaco a riposo è {min}";
+        }
+
+        public static string VariabilitàBattitoCardiaco()
+        {
+            LetturaFileTesto();
+            double min = dati2[0], max = dati2[0];
+            foreach (var item in dati2)
+            {
+                min = Math.Min(item, min);
+                max = Math.Max(item, max);
+            }
+            double variabilità = max - min;
+            return $"La variabilità del battito cardiaco è {variabilità}";
+        }        
     }
 }
