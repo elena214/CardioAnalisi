@@ -13,7 +13,7 @@ namespace CardioLibrary
         public static string FrequenzaCardiaca(int età, int battiti)
         {
             int frequeMax = 220 - età;
-            
+
             if (battiti > frequeMax)
             {
                 return "Rilassati!! Hai la frequenza cardiaca è troppo alta";
@@ -100,7 +100,7 @@ namespace CardioLibrary
 
         public static void LetturaFileTesto()
         {
-            StreamReader streamLettura = new StreamReader(@"C:\Users\strac_eohm0fn\OneDrive\Desktop\Progetto fine anno tepsit 3AI\CardioAnalisi\CardioAnalisi\Cardio_Analisi\DatiAnalisi.txt");
+            StreamReader streamLettura = new StreamReader(Costanti.DIRECTORY + Costanti.FILE);
             string line;
 
             do
@@ -139,7 +139,7 @@ namespace CardioLibrary
         {
             LetturaFileTesto();
             double min = dati2[0];
-            foreach(var item in dati2)
+            foreach (var item in dati2)
             {
                 min = Math.Min(item, min);
             }
@@ -157,6 +157,6 @@ namespace CardioLibrary
             }
             double variabilità = max - min;
             return $"La variabilità del battito cardiaco è {variabilità}";
-        }        
+        }
     }
 }

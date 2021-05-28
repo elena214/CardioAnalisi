@@ -6,40 +6,37 @@
         xmlns:local="clr-namespace:Cardio_Analisi"
         mc:Ignorable="d"
         Title="Frequenza Cardiaca" Height="900" Width="800">
-    <Grid Height="890" VerticalAlignment="Top">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFCF7AE"/>
-                <GradientStop Color="#FFA4FDE9" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Label Content="FREQUENZA CARDIACA" HorizontalAlignment="Left" Margin="226,15,0,0" VerticalAlignment="Top" Width="408" Height="55" FontWeight="Bold" FontSize="35" FontFamily="Algerian"/>
-        <Label Content="Cosa vuoi sapere? La tua frequenza cardiaca:" HorizontalAlignment="Left" Margin="159,70,0,0" VerticalAlignment="Top" Width="537" FontSize="25" Height="45" FontWeight="Bold"/>
-        <RadioButton x:Name="rdbRiposo" Content="a riposo" HorizontalAlignment="Left" Margin="254,124,0,0" VerticalAlignment="Top" Checked="rdbRiposo_Checked" FontSize="20" Height="25" Width="106"/>
-        <RadioButton x:Name="rdbSottosforzo" Content="sottosforzo" HorizontalAlignment="Left" Margin="424,124,0,0" VerticalAlignment="Top" Checked="rdbSottosforzo_Checked" FontSize="20" Height="25" Width="121"/>
-        <Label Content="Inserisci i dati dove richiesto" HorizontalAlignment="Left" Margin="244,164,0,0" VerticalAlignment="Top" Width="348" FontSize="25" Height="39" FontWeight="Bold"/>
-        <Label Content="età" HorizontalAlignment="Left" Margin="189,213,0,0" VerticalAlignment="Top" FontSize="20" Width="36" Height="38"/>
-        <Label Content="battiti" HorizontalAlignment="Left" Margin="408,213,0,0" VerticalAlignment="Top" FontSize="20" Width="60" Height="38"/>
-        <Label Content="genere" HorizontalAlignment="Left" Margin="127,305,0,0" VerticalAlignment="Top" FontSize="20" Width="74" Height="44"/>
-        <Label Content="tipo allenamento" HorizontalAlignment="Left" Margin="367,305,0,0" VerticalAlignment="Top" FontSize="20" Width="161" Height="34"/>
-        <TextBox x:Name="txtEtà" HorizontalAlignment="Left" Margin="245,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" FontSize="15" Height="22" FontWeight="Bold"/>
-        <TextBox x:Name="txtBattiti" HorizontalAlignment="Left" Margin="476,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontSize="15" Height="22" FontWeight="Bold"/>
-        <ComboBox x:Name="cboGenere" HorizontalAlignment="Left" Margin="199,312,0,0" VerticalAlignment="Top" Width="148" Loaded="cboGenere_Loaded" FontSize="15" Height="24"/>
+    <Grid Height="890" VerticalAlignment="Top" Background="#FFF7F7BB">
+        <Label Content="FREQUENZA CARDIACA" HorizontalAlignment="Left" Margin="575,0,0,0" VerticalAlignment="Top" Width="408" Height="54" FontWeight="Bold" FontSize="35" FontFamily="Algerian" Foreground="#FFEE4A4A"/>
+        <Label Content="Cosa vuoi sapere? La tua frequenza cardiaca:" HorizontalAlignment="Left" Margin="499,50,0,0" VerticalAlignment="Top" Width="538" FontSize="25" Height="45" FontWeight="Bold"/>
+        <RadioButton x:Name="rdbRiposo" Content="a riposo" HorizontalAlignment="Left" Margin="609,95,0,0" VerticalAlignment="Top" Checked="rdbRiposo_Checked" FontSize="25" Height="35" Width="124"/>
+        <RadioButton x:Name="rdbSottosforzo" Content="sottosforzo" HorizontalAlignment="Left" Margin="798,95,0,0" VerticalAlignment="Top" Checked="rdbSottosforzo_Checked" FontSize="25" Height="35" Width="162"/>
+        <Label Content="Inserisci i dati dove richiesto" HorizontalAlignment="Left" Margin="601,135,0,0" VerticalAlignment="Top" Width="348" FontSize="25" Height="39" FontWeight="Bold"/>
+        <Label Content="Età" HorizontalAlignment="Left" Margin="559,179,0,0" VerticalAlignment="Top" FontSize="20" Width="36" Height="38"/>
+        <Label Content="Battiti" HorizontalAlignment="Left" Margin="753,179,0,0" VerticalAlignment="Top" FontSize="20" Width="60" Height="38"/>
+        <Label Content="Genere" HorizontalAlignment="Left" Margin="473,257,0,0" VerticalAlignment="Top" FontSize="20" Width="74" Height="44"/>
+        <Label Content="Tipo allenamento" HorizontalAlignment="Left" Margin="707,259,0,0" VerticalAlignment="Top" FontSize="20" Width="166" Height="34"/>
+        <TextBox x:Name="txtEtà" HorizontalAlignment="Left" Margin="605,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" FontSize="15" Height="22" FontWeight="Bold"/>
+        <TextBox x:Name="txtBattiti" HorizontalAlignment="Left" Margin="821,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" FontSize="15" Height="22" FontWeight="Bold"/>
+        <ComboBox x:Name="cboGenere" HorizontalAlignment="Left" Margin="545,264,0,0" VerticalAlignment="Top" Width="148" Loaded="cboGenere_Loaded" FontSize="15" Height="24"/>
 
-        <ComboBox x:Name="cboTipoAllenamento" HorizontalAlignment="Left" Margin="533,312,0,0" VerticalAlignment="Top" Width="150" Loaded="cboTipoAllenamento_Loaded" FontSize="15" Height="24"/>
+        <ComboBox x:Name="cboTipoAllenamento" HorizontalAlignment="Left" Margin="874,264,0,0" VerticalAlignment="Top" Width="150" Loaded="cboTipoAllenamento_Loaded" FontSize="15" Height="24"/>
 
-        <ListBox x:Name="lboStampa" HorizontalAlignment="Center" Height="136" Margin="0,423,0,0" VerticalAlignment="Top" Width="682" FontStyle="Normal"/>
-        <ListBox x:Name="lboInformazioni" HorizontalAlignment="Center" Height="181" Margin="0,656,0,0" VerticalAlignment="Top" Width="682"/>
-        <Label Content="peso" HorizontalAlignment="Left" Margin="130,263,0,0" VerticalAlignment="Top" FontSize="20" Width="56" Height="35"/>
-        <Label Content="Km" HorizontalAlignment="Left" Margin="333,262,0,0" VerticalAlignment="Top" FontSize="20" Width="40" Height="32"/>
-        <TextBox x:Name="txtPeso" HorizontalAlignment="Left" Margin="186,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontSize="15" Height="24" FontWeight="Bold"/>
-        <TextBox x:Name="txtKm" HorizontalAlignment="Left" Margin="377,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" FontSize="15" Height="24" FontWeight="Bold"/>
-        <TextBox x:Name="txtTempo" HorizontalAlignment="Left" Margin="584,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" FontSize="15" Height="24" FontWeight="Bold"/>
-        <Label Content="Tempo" HorizontalAlignment="Left" Margin="504,260,0,0" VerticalAlignment="Top" FontSize="20" Width="74" Height="40"/>
-        <Button x:Name="btnCarica" Content="Carica" HorizontalAlignment="Left" Margin="232,359,0,0" VerticalAlignment="Top" Height="43" Width="175" FontSize="20" Click="btnCarica_Click" FontWeight="Bold" Background="#FF8CE0B8"/>
-        <Button x:Name="btnElimina" Content="Elimina" HorizontalAlignment="Left" Height="43" Margin="441,359,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold" FontSize="20" Click="btnElimina_Click" Background="#FF8CE0B8"/>
-        <Button x:Name="btnClicca" Content="Clicca qui" HorizontalAlignment="Center" Margin="0,615,0,0" VerticalAlignment="Top" Height="36" Width="172" FontSize="20" Click="btnClicca_Click" FontWeight="Bold" Background="#FF8CE0B8"/>
-        <Label Content="Sei una donna incinta?" HorizontalAlignment="Left" Height="35" Margin="172,567,0,0" VerticalAlignment="Top" Width="214" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Vuoi maggiori informazioni?" HorizontalAlignment="Left" Height="48" Margin="391,567,0,0" VerticalAlignment="Top" Width="309" FontSize="20" FontWeight="Bold"/>
+        <ListBox x:Name="lboStampa" HorizontalAlignment="Left" Height="136" Margin="424,380,0,0" VerticalAlignment="Top" Width="682" FontStyle="Normal"/>
+        <ListBox x:Name="lboInformazioni" HorizontalAlignment="Left" Height="181" Margin="428,610,0,0" VerticalAlignment="Top" Width="682"/>
+        <Label Content="Peso" HorizontalAlignment="Left" Margin="483,215,0,0" VerticalAlignment="Top" FontSize="20" Width="56" Height="35"/>
+        <Label Content="Km" HorizontalAlignment="Left" Margin="677,212,0,0" VerticalAlignment="Top" FontSize="20" Width="40" Height="32"/>
+        <TextBox x:Name="txtPeso" HorizontalAlignment="Left" Margin="539,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" FontSize="15" Height="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtKm" HorizontalAlignment="Left" Margin="721,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" FontSize="15" Height="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtTempo" HorizontalAlignment="Left" Margin="928,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" FontSize="15" Height="24" FontWeight="Bold"/>
+        <Label Content="Tempo" HorizontalAlignment="Left" Margin="852,214,0,0" VerticalAlignment="Top" FontSize="20" Width="74" Height="40"/>
+        <Button x:Name="btnCarica" Content="Carica" HorizontalAlignment="Left" Margin="554,315,0,0" VerticalAlignment="Top" Height="43" Width="176" FontSize="30" Click="btnCarica_Click" FontWeight="Bold" Background="#FFFCBC75"/>
+        <Button x:Name="btnElimina" Content="Elimina" HorizontalAlignment="Left" Height="43" Margin="786,315,0,0" VerticalAlignment="Top" Width="174" FontWeight="Bold" FontSize="30" Click="btnElimina_Click" Background="#FFFCBC75"/>
+        <Button x:Name="btnClicca" Content="Clicca qui" HorizontalAlignment="Left" Margin="683,561,0,0" VerticalAlignment="Top" Height="44" Width="172" FontSize="30" Click="btnClicca_Click" FontWeight="Bold" Background="#FFFCBC75"/>
+        <Label Content="Sei una donna incinta?" HorizontalAlignment="Left" Height="35" Margin="543,521,0,0" VerticalAlignment="Top" Width="222" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Vuoi maggiori informazioni?" HorizontalAlignment="Left" Height="48" Margin="765,521,0,0" VerticalAlignment="Top" Width="308" FontSize="20" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="108" Margin="973,100,0,0" VerticalAlignment="Top" Width="128" Source="/cuore.jpg"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="973,0,0,0" VerticalAlignment="Top" Width="100" Source="/frequenza cardiaca 1.png"/>
+        <Image HorizontalAlignment="Left" Height="51" Margin="483,0,0,0" VerticalAlignment="Top" Width="100" Source="/frequenza cardiaca 2.png"/>
     </Grid>
 </Window>

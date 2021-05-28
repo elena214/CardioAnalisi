@@ -41,11 +41,19 @@ namespace Cardio_Analisi
                     try
                     {
                         int battiti = Convert.ToInt32(txtBattiti.Text);
-                        string frequeRiposo = DataCardio.FrequenzaCardiacaARiposo(battiti);
                         int età = Convert.ToInt32(txtEtà.Text);
-                        string frequeMaxMin = DataCardio.FrequenzaCardiacaMaxMin(età);
-                        lboStampa.Items.Add(frequeRiposo);
-                        lboStampa.Items.Add(frequeMaxMin);
+
+                        if (battiti <= 0 || età <= 0 || età > 130)
+                        {
+                            MessageBox.Show("I valori inseriti non sono validi", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                        else
+                        {
+                            string frequeRiposo = DataCardio.FrequenzaCardiacaARiposo(battiti);
+                            string frequeMaxMin = DataCardio.FrequenzaCardiacaMaxMin(età);
+                            lboStampa.Items.Add(frequeRiposo);
+                            lboStampa.Items.Add(frequeMaxMin);
+                        }
                     }
                     catch (Exception)
                     {
@@ -54,50 +62,61 @@ namespace Cardio_Analisi
 
                     txtEtà.Clear();
                     txtBattiti.Clear();
+                    txtPeso.Clear();
+                    txtTempo.Clear();
+                    txtKm.Clear();
+                    cboTipoAllenamento.SelectedIndex = -1;
+                    cboGenere.SelectedIndex = -1;
+
                 }
                 else
                 {
                     MessageBox.Show("Devi inserire i valori dell'età e/o dei battiti cardiaci", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
-
             }
             else if (rdbSottosforzo.IsChecked == true)
             {
-                if (!string.IsNullOrWhiteSpace(txtBattiti.Text) && !string.IsNullOrWhiteSpace(txtEtà.Text) && !string.IsNullOrWhiteSpace(txtKm.Text) && !string.IsNullOrWhiteSpace(txtPeso.Text) && !string.IsNullOrWhiteSpace(txtTempo.Text))
+                if (!string.IsNullOrWhiteSpace(txtBattiti.Text) && !string.IsNullOrWhiteSpace(txtEtà.Text) && !string.IsNullOrWhiteSpace(txtKm.Text) && !string.IsNullOrWhiteSpace(txtPeso.Text) && !string.IsNullOrWhiteSpace(txtTempo.Text) && cboGenere.SelectedItem != null && cboTipoAllenamento.SelectedItem != null)
                 {
                     try
                     {
-                        int età = Convert.ToInt32(txtEtà.Text);
                         int battiti = Convert.ToInt32(txtBattiti.Text);
-                        string frequeMaxMin = DataCardio.FrequenzaCardiacaMaxMin(età);
-                        lboStampa.Items.Add(frequeMaxMin);
-
-                        string allenamentoEfficace = DataCardio.FrequenzaCardiacaPalestra(età, battiti);
-                        lboStampa.Items.Add(allenamentoEfficace);
-
+                        int età = Convert.ToInt32(txtEtà.Text);
                         double km = Convert.ToDouble(txtKm.Text);
                         double peso = Convert.ToDouble(txtPeso.Text);
                         double tempo = Convert.ToDouble(txtTempo.Text);
-                        string tipologia = cboTipoAllenamento.SelectedItem.ToString();
-                        string categoria = cboGenere.SelectedItem.ToString();
 
-                        if (tipologia == "corsa" || tipologia == "camminata")
-                        {                            
-                            string tipoAllenamento = DataCardio.SpesaEnergetica(tipologia, peso, km);
-                            lboStampa.Items.Add(tipoAllenamento);                            
-                        }
-                        else if (tipologia == "altro")
+                        if (battiti <= 0 || età <= 0 || km <= 0 || peso <= 0 || tempo <= 0 || età > 120)
                         {
-                            string calorieBruciate = DataCardio.CalorieBruciate(peso, età, tempo, categoria);
-                            lboStampa.Items.Add(calorieBruciate);
-                        }                        
+                            MessageBox.Show("I valori inseriti non sono validi", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                        else
+                        {
+                            string frequeMaxMin = DataCardio.FrequenzaCardiacaMaxMin(età);
+                            lboStampa.Items.Add(frequeMaxMin);
 
+                            string allenamentoEfficace = DataCardio.FrequenzaCardiacaPalestra(età, battiti);
+                            lboStampa.Items.Add(allenamentoEfficace);
+                            string tipologia = cboTipoAllenamento.SelectedItem.ToString();
+                            string categoria = cboGenere.SelectedItem.ToString();
+
+                            if (tipologia == "corsa" || tipologia == "camminata")
+                            {
+                                string tipoAllenamento = DataCardio.SpesaEnergetica(tipologia, peso, km);
+                                lboStampa.Items.Add(tipoAllenamento);
+                            }
+                            else if (tipologia == "altro")
+                            {
+                                string calorieBruciate = DataCardio.CalorieBruciate(peso, età, tempo, categoria);
+                                lboStampa.Items.Add(calorieBruciate);
+                            }
+                        }
                     }
-                    catch (Exception e1)
+                    catch (Exception)
                     {
-                        MessageBox.Show(e1.Message, "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show("Formato della stringa di input non corretto", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
-                    
+
                     txtEtà.Clear();
                     txtBattiti.Clear();
                     txtPeso.Clear();
@@ -110,7 +129,7 @@ namespace Cardio_Analisi
                 {
                     MessageBox.Show("Devi inserire tutti i valori richiesti", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
-            }            
+            }
             else
             {
                 MessageBox.Show("Devi selezionare almeno una tipologia di frequenza cardiaca", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -148,6 +167,7 @@ namespace Cardio_Analisi
             tipoAllenamento.Add("corsa");
             tipoAllenamento.Add("camminata");
             tipoAllenamento.Add("altro");
+
             foreach (var item in tipoAllenamento)
             {
                 cboTipoAllenamento.Items.Add(item);
@@ -158,6 +178,7 @@ namespace Cardio_Analisi
         {
             generi.Add("maschio");
             generi.Add("femmina");
+
             foreach (var item in generi)
             {
                 cboGenere.Items.Add(item);
@@ -179,7 +200,7 @@ namespace Cardio_Analisi
 
             } while (line != null);
 
-            streamLettura.Close();                    
+            streamLettura.Close();
         }
 
         private void btnClicca_Click(object sender, RoutedEventArgs e)
